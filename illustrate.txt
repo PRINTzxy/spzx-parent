@@ -1,0 +1,22 @@
+模块介绍
+com.spzx
+├── spzx-gateway         // 网关模块 [8080]
+├── spzx-auth            // 认证中心 [9200]
+├── spzx-api             // 接口模块
+│       └── spzx-api-system                        // 系统接口
+├── spzx-common          // 通用模块
+│       └── spzx-common-core                         // 核心模块
+│       └── spzx-common-datascope                    // 权限范围
+│       └── spzx-common-datasource                   // 多数据源
+│       └── spzx-common-log                          // 日志记录
+│       └── spzx-common-redis                        // 缓存服务
+│       └── spzx-common-security                     // 安全模块
+├── spzx-modules         // 业务模块
+│       └── spzx-system                              // 系统模块 [9201]
+│       └── spzx-gen                                 // 代码生成 [9202]
+│       └── spzx-job                                 // 定时任务 [9203]
+│       └── spzx-file                                // 文件服务 [9300]
+├── spzx-ui              // 前端框架 [80]
+├── spzx-visual          // 图形化管理模块
+│       └── spzx-monitor                             // 监控中心 [9100]
+├──pom.xml                // 公共依赖
