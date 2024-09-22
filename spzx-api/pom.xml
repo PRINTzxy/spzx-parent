@@ -10,6 +10,12 @@
     </parent>
 
     <artifactId>spzx-api</artifactId>
+    <packaging>pom</packaging>
+    <description> spzx-api系统接口 </description>
+
+    <modules>
+        <module>spzx-api-system</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

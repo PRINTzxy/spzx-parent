@@ -10,6 +10,14 @@
     </parent>
 
     <artifactId>spzx-modules</artifactId>
+    <packaging>pom</packaging>
+    <description> spzx-modules业务模块 </description>
+    <modules>
+        <module>spzx-file</module>
+        <module>spzx-gen</module>
+        <module>spzx-job</module>
+        <module>spzx-system</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

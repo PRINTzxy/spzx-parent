@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/spzx-api/spzx-api-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-api/spzx-api-system/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-auth/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-datascope/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-datascope/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-seata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-seata/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-common/spzx-common-security/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-file/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-file/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-gen/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-gen/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-modules/spzx-system/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-modules/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-modules/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-ui/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-ui/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-visual/spzx-monitor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spzx-visual/spzx-monitor/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-visual/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spzx-visual/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

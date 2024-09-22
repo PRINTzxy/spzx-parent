@@ -10,6 +10,11 @@
     </parent>
 
     <artifactId>spzx-visual</artifactId>
+    <packaging>pom</packaging>
+    <description> spzx-visual图形化管理模块 </description>
+    <modules>
+        <module>spzx-monitor</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

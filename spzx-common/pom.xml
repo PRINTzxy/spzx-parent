@@ -10,6 +10,17 @@
     </parent>
 
     <artifactId>spzx-common</artifactId>
+    <packaging>pom</packaging>
+    <description> spzx-common通用模块 </description>
+    <modules>
+        <module>spzx-common-core</module>
+        <module>spzx-common-datascope</module>
+        <module>spzx-common-datasource</module>
+        <module>spzx-common-log</module>
+        <module>spzx-common-redis</module>
+        <module>spzx-common-seata</module>
+        <module>spzx-common-security</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
