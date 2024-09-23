@@ -31,9 +31,9 @@ public class PreAuthorizeAspect
     /**
      * 定义AOP签名 (切入所有使用鉴权注解的方法)
      */
-    public static final String POINTCUT_SIGN = " @annotation(com.spzx.common.security.annotation.RequiresLogin) || "
-            + "@annotation(com.spzx.common.security.annotation.RequiresPermissions) || "
-            + "@annotation(com.spzx.common.security.annotation.RequiresRoles)";
+    public static final String POINTCUT_SIGN = " @annotation(website.yny84666.spzx.common.security.annotation.RequiresLogin) || "
+            + "@annotation(website.yny84666.spzx.common.security.annotation.RequiresPermissions) || "
+            + "@annotation(website.yny84666.spzx.common.security.annotation.RequiresRoles)";
 
     /**
      * 声明AOP签名

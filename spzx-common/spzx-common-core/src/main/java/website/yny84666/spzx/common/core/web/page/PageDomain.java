@@ -1,6 +1,6 @@
 package website.yny84666.spzx.common.core.web.page;
 
-import com.spzx.common.core.utils.StringUtils;
+import website.yny84666.spzx.common.core.utils.StringUtils;
 
 /**
  * 分页数据

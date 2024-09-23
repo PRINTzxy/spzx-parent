@@ -1,7 +1,7 @@
 package website.yny84666.spzx.common.core.web.page;
 
-import com.spzx.common.core.text.Convert;
-import com.spzx.common.core.utils.ServletUtils;
+import website.yny84666.spzx.common.core.text.Convert;
+import website.yny84666.spzx.common.core.utils.ServletUtils;
 
 /**
  * 表格数据处理

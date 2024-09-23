@@ -17,7 +17,7 @@ public @interface EnableRyFeignClients
 {
     String[] value() default {};
 
-    String[] basePackages() default { "com.spzx" };
+    String[] basePackages() default { "website.yny84666.spzx" };
 
     Class<?>[] basePackageClasses() default {};
 
