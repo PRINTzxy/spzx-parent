@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="website.yny84666.spzx.product.mapper.ProductSkuMapper">
+
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.ProductSku">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="skuCode" column="sku_code" jdbcType="VARCHAR"/>
+            <result property="skuName" column="sku_name" jdbcType="VARCHAR"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="thumbImg" column="thumb_img" jdbcType="VARCHAR"/>
+            <result property="salePrice" column="sale_price" jdbcType="DECIMAL"/>
+            <result property="marketPrice" column="market_price" jdbcType="DECIMAL"/>
+            <result property="costPrice" column="cost_price" jdbcType="DECIMAL"/>
+            <result property="skuSpec" column="sku_spec" jdbcType="VARCHAR"/>
+            <result property="weight" column="weight" jdbcType="DECIMAL"/>
+            <result property="volume" column="volume" jdbcType="DECIMAL"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sku_code,sku_name,
+        product_id,thumb_img,sale_price,
+        market_price,cost_price,sku_spec,
+        weight,volume,status,
+        create_time,create_by,update_time,
+        update_by,del_flag,remark
+    </sql>
+</mapper>

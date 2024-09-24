@@ -3,6 +3,59 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="website.yny84666.spzx.product.mapper.BrandMapper">
+
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.Brand">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="logo" column="logo" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,logo,
+        create_time,create_by,update_time,
+        update_by,del_flag,remark
+    </sql>
+    <insert id="saveBrand">
+        insert into brand(
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="logo != null">logo,</if>
+            <if test="create_time != null">create_time,</if>
+            <if test="create_by != null">create_by,</if>
+            <if test="update_time != null">update_time,</if>
+            <if test="update_by != null">update_by,</if>
+            <if test="remark != null">remark,</if>
+            del_flag
+        ) values (
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="logo != null">#{logo},</if>
+            <if test="create_time != null">#{create_time},</if>
+            <if test="create_by != null">#{create_by},</if>
+            <if test="update_time != null">#{update_time},</if>
+            <if test="update_by != null">#{update_by},</if>
+            <if test="remark != null">#{remark},</if>
+            0
+        )
+    </insert>
+
+    <update id="updateBrandById">
+        update brand
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="logo != null and logo != ''">logo = #{logo},</if>
+            update_time = now()
+        </set>
+        where del_flag = 0
+        and id = #{id}
+    </update>
+
     <select id="selectBrandList" resultType="website.yny84666.spzx.product.domain.Brand">
         select *
         from brand
@@ -13,4 +66,36 @@
             </if>
         </where>
     </select>
+
+    <select id="getBrandById" resultType="website.yny84666.spzx.product.domain.Brand">
+        select *
+        from brand
+        <where>
+            del_flag = 0
+            <if test="id!=null">
+                and id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBrandByName" resultMap="BaseResultMap">
+        select id,name,logo
+        from brand
+        <where>
+            del_flag = 0
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+        </where>
+        limit 0,1
+    </select>
+
+    <update id="deleteBrand">
+        update brand set del_flag = 2
+        where del_flag = 0 and id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        #遍历ids集合，将每个id放在#{id}中，表示这些ID会被参数化，增加安全性。最终生成的SQL片段会被括号包围，并且各个ID之间用逗号分隔，适合用于IN子句等场景
+    </update>
 </mapper>

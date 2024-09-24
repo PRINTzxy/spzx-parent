@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="website.yny84666.spzx.product.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.Product">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="brandId" column="brand_id" jdbcType="BIGINT"/>
+            <result property="category1Id" column="category1_id" jdbcType="BIGINT"/>
+            <result property="category2Id" column="category2_id" jdbcType="BIGINT"/>
+            <result property="category3Id" column="category3_id" jdbcType="BIGINT"/>
+            <result property="unitName" column="unit_name" jdbcType="VARCHAR"/>
+            <result property="sliderUrls" column="slider_urls" jdbcType="VARCHAR"/>
+            <result property="specValue" column="spec_value" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="auditStatus" column="audit_status" jdbcType="TINYINT"/>
+            <result property="auditMessage" column="audit_message" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,brand_id,
+        category1_id,category2_id,category3_id,
+        unit_name,slider_urls,spec_value,
+        status,audit_status,audit_message,
+        create_time,create_by,update_time,
+        update_by,del_flag,remark
+    </sql>
+</mapper>
