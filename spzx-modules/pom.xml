@@ -17,6 +17,7 @@
         <module>spzx-gen</module>
         <module>spzx-job</module>
         <module>spzx-system</module>
+        <module>spzx-product</module>
     </modules>
 
     <properties>

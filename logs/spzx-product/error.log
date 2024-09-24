@@ -1,0 +1,30 @@
+[34m2024-09-23 21:27:05.397[0;39m [1;31mERROR[0;39m [35m[main][0;39m [36mo.s.b.d.LoggingFailureAnalysisReporter - [report:40][0;39m - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'website.yny84666.spzx.product.service.BrandService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'website.yny84666.spzx.product.service.BrandService' in your configuration.
+
+[34m2024-09-23 21:28:45.299[0;39m [1;31mERROR[0;39m [35m[main][0;39m [36mo.s.b.d.LoggingFailureAnalysisReporter - [report:40][0;39m - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'website.yny84666.spzx.product.service.BrandService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'website.yny84666.spzx.product.service.BrandService' in your configuration.
+

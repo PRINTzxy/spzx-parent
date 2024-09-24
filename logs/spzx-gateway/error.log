@@ -1117,3 +1117,19 @@ Caused by: java.util.concurrent.TimeoutException: Waited 3000 milliseconds (plus
 18:08:32.797 [http-nio-8080-exec-9] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/code,异常信息:Invalid value 'com.spzx.gateway.config.KaptchaTextCreator' for config parameter 'kaptcha.textproducer.impl'.
 18:08:57.840 [http-nio-8080-exec-1] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/code,异常信息:Invalid value 'com.spzx.gateway.config.KaptchaTextCreator' for config parameter 'kaptcha.textproducer.impl'.
 18:09:00.699 [http-nio-8080-exec-2] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/code,异常信息:Invalid value 'com.spzx.gateway.config.KaptchaTextCreator' for config parameter 'kaptcha.textproducer.impl'.
+21:18:49.165 [http-nio-8080-exec-8] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/css/app.ac23e017.css,异常信息:404 NOT_FOUND
+21:18:49.797 [http-nio-8080-exec-1] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/app.51033393.js,异常信息:404 NOT_FOUND
+21:18:49.865 [http-nio-8080-exec-7] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-vendors.d51cf6f8.js,异常信息:404 NOT_FOUND
+21:18:50.042 [http-nio-8080-exec-4] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/css/chunk-75464e7e.8fb93ba5.css,异常信息:404 NOT_FOUND
+21:18:50.064 [http-nio-8080-exec-2] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-069eb437.327773c4.js,异常信息:404 NOT_FOUND
+21:18:50.078 [http-nio-8080-exec-3] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-0d102d5a.b2bddffc.js,异常信息:404 NOT_FOUND
+21:18:50.094 [http-nio-8080-exec-6] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-260d712a.390177fe.js,异常信息:404 NOT_FOUND
+21:18:50.115 [http-nio-8080-exec-8] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-2d0af44e.392afcd6.js,异常信息:404 NOT_FOUND
+21:18:50.116 [http-nio-8080-exec-5] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-2d0bd799.eb48b7f1.js,异常信息:404 NOT_FOUND
+21:18:50.135 [http-nio-8080-exec-1] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-2d0da532.591ad7fc.js,异常信息:404 NOT_FOUND
+21:18:50.157 [http-nio-8080-exec-7] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/favicon.ico,异常信息:404 NOT_FOUND
+21:18:50.222 [http-nio-8080-exec-9] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-735c675c.5b409314.js,异常信息:404 NOT_FOUND
+21:18:50.222 [http-nio-8080-exec-2] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-589faee0.5bfd1708.js,异常信息:404 NOT_FOUND
+21:18:50.238 [http-nio-8080-exec-3] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-75464e7e.b130271b.js,异常信息:404 NOT_FOUND
+21:18:50.254 [http-nio-8080-exec-6] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-adb9e944.2c7f24fe.js,异常信息:404 NOT_FOUND
+21:18:50.270 [http-nio-8080-exec-8] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/webjars/js/chunk-d7d5f59c.e61130f3.js,异常信息:404 NOT_FOUND
