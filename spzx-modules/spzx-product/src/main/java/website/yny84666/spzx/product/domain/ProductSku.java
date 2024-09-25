@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import website.yny84666.spzx.common.core.web.domain.BaseEntity;
 
@@ -70,6 +72,14 @@ public class ProductSku extends BaseEntity implements Serializable {
      * 线上状态：0-初始值，1-上架，-1-自主下架
      */
     private Integer status;
+
+//    @TableField(exist = false)
+//    @Schema(description = "扩展属性：sku的库存数量")
+//    private Integer stockNum;
+//
+//    @TableField(exist = false)
+//    @Schema(description = "扩展属性：sku的销量")
+//    private Integer saleNum;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

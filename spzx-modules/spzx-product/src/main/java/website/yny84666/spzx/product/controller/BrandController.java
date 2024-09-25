@@ -9,6 +9,7 @@ import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
 import website.yny84666.spzx.common.core.web.page.TableDataInfo;
 import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.mapper.BrandMapper;
 import website.yny84666.spzx.product.service.BrandService;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public class BrandController extends BaseController {
 
     @Resource
     private BrandService brandService;
+    @Resource
+    private BrandMapper brandMapper;
 
     @Operation(summary = "条件分页查询品牌列表")
     @GetMapping("/list")

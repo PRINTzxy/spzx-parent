@@ -25,6 +25,8 @@ public class ProductDetails extends BaseEntity implements Serializable {
      */
     private String imageUrls;
 
+    //private String delFlag;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

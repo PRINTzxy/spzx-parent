@@ -1,5 +1,6 @@
 package website.yny84666.spzx.product.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -55,7 +56,7 @@ public class CategoryBrandController extends BaseController {
     @Operation(summary = "根据分类id获取品牌品牌列表")
     @GetMapping("/brandList/{categoryId}")
     public AjaxResult getCategoryBrandListById(@PathVariable("categoryId") Long categoryId){
-        return success(categoryBrandMapper.selectById(categoryId));
+        return success(categoryBrandMapper.selectList(new LambdaQueryWrapper<CategoryBrand>().eq(CategoryBrand::getCategoryId,categoryId)));
     }
 
     @Operation(summary = "删除分类品牌")

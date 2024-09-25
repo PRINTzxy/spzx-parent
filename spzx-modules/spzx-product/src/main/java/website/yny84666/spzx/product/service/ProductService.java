@@ -2,6 +2,7 @@ package website.yny84666.spzx.product.service;
 
 import website.yny84666.spzx.product.domain.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
+import website.yny84666.spzx.product.domain.dto.ProductSaveDTO;
 
 /**
 * @author Dell
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ProductService extends IService<Product> {
 
+    //int selectProductSaveDTO(ProductSaveDTO productSaveDTO);
 }
