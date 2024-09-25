@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import website.yny84666.spzx.common.core.web.domain.BaseEntity;
 
@@ -18,11 +20,13 @@ public class CategoryBrand extends BaseEntity implements Serializable {
     /**
      * 品牌ID
      */
+    @NotNull
     private Long brandId;
 
     /**
      * 分类ID
      */
+    @NotNull
     private Long categoryId;
 
     @TableField(exist = false)

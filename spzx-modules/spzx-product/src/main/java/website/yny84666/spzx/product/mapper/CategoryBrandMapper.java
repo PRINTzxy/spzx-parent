@@ -3,6 +3,8 @@ package website.yny84666.spzx.product.mapper;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
 * @author Dell
 * @description 针对表【category_brand(分类品牌)】的数据库操作Mapper
@@ -11,6 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface CategoryBrandMapper extends BaseMapper<CategoryBrand> {
 
+    List<CategoryBrand> selectCategoyBrandVOList(CategoryBrand categoryBrand);
 }
 
 

@@ -1,7 +1,11 @@
 package website.yny84666.spzx.product.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
+import website.yny84666.spzx.product.domain.ProductUnit;
+
+import java.util.List;
 
 /**
 * @author Dell
@@ -10,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CategoryBrandService extends IService<CategoryBrand> {
 
+    void checkUniqueCategoryBrand(CategoryBrand categoryBrand);
+
+    List<CategoryBrand> selectCategoyBrandVOList(CategoryBrand categoryBrand);
 }
