@@ -27,6 +27,7 @@ public class ProductUnitController extends BaseController {
     @Resource
     private ProductUnitMapper productUnitMapper;
 
+
     @Operation(summary = "新增商品单位")
     @PostMapping("/productUnit")
     public AjaxResult saveProductUnit(@Validated @RequestBody ProductUnit productUnit) {

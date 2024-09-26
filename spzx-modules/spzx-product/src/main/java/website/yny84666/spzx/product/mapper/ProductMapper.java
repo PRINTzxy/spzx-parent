@@ -1,7 +1,13 @@
 package website.yny84666.spzx.product.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Param;
 import website.yny84666.spzx.product.domain.Product;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import website.yny84666.spzx.product.domain.dto.ProductDetailsDTO;
+import website.yny84666.spzx.product.domain.vo.ProductDetailVO;
+
+import java.util.List;
 
 /**
 * @author Dell
@@ -10,6 +16,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity website.yny84666.spzx.product.domain.Product
 */
 public interface ProductMapper extends BaseMapper<Product> {
+
+    List<ProductDetailVO> selectProductList(ProductDetailsDTO productDetailsDTO);
 
 }
 

@@ -33,4 +33,33 @@
         create_time,create_by,update_time,
         update_by,del_flag,remark
     </sql>
+
+    <select id="selectProductList" resultType="website.yny84666.spzx.product.domain.vo.ProductVO">
+        SELECT p.*,b.name brandName,c1.name category1Name,c2.name category2Name,c3.name category3Name
+        FROM product p
+        left join brand b on p.brand_id = b.id and b.del_flag = 0
+        left join category c1 on p.category1_id = c1.id and c1.del_flag = 0
+        left join category c2 on p.category2_id = c2.id and c2.del_flag = 0
+        left join category c3 on p.category3_id = c3.id and c3.del_flag = 0
+        <where>
+            and p.del_flag = 0
+            <if test="name != null and name != ''">
+                and p.name like concat('%','#{name}','%')
+            </if>
+            <if test="brandId != null">
+                and p.brand_id = #{brandId}
+            </if>
+            <if test="category1Id != null">
+                and p.category1_id = #{category1Id}
+            </if>
+            <if test="category2Id != null">
+                and p.category2_id = #{category2Id}
+            </if>
+            <if test="category3Id != null">
+                and p.category3_id = #{category3Id}
+            </if>
+        </where>
+
+    </select>
+
 </mapper>

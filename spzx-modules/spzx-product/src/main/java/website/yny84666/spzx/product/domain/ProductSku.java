@@ -73,13 +73,13 @@ public class ProductSku extends BaseEntity implements Serializable {
      */
     private Integer status;
 
-//    @TableField(exist = false)
-//    @Schema(description = "扩展属性：sku的库存数量")
-//    private Integer stockNum;
-//
-//    @TableField(exist = false)
-//    @Schema(description = "扩展属性：sku的销量")
-//    private Integer saleNum;
+    @TableField(exist = false)
+    @Schema(description = "扩展属性：sku的库存数量")
+    private Integer stockNum;
+
+    @TableField(exist = false)
+    @Schema(description = "扩展属性：sku的销量")
+    private Integer saleNum;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

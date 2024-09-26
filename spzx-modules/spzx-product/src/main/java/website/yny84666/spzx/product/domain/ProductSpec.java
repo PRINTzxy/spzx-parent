@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -42,6 +43,14 @@ public class ProductSpec extends BaseEntity implements Serializable {
     @NotBlank(message = "规格值不能为空")
     @Size(min = 0, max = 200, message = "规格值长度不能超过200个字符")
     private String specValue;
+
+    @Schema(description = "分类名称")
+    @TableField(exist = false)
+    private String categoryName;
+
+    @Schema(description = "分类id列表")
+    @TableField(exist = false)
+    private List<Long> categoryIdList;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -23,8 +23,6 @@ public class BrandController extends BaseController {
 
     @Resource
     private BrandService brandService;
-    @Resource
-    private BrandMapper brandMapper;
 
     @Operation(summary = "条件分页查询品牌列表")
     @GetMapping("/list")
@@ -60,10 +58,6 @@ public class BrandController extends BaseController {
     }
 
 
-
-
-//    @Operation(summary = "新增品牌")
-//    @Operation(summary = "批量删除品牌")
 
 }
 

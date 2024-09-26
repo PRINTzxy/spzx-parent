@@ -1,6 +1,7 @@
 package website.yny84666.spzx.common.core.web.page;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.poi.ss.formula.functions.T;
 import website.yny84666.spzx.common.core.constant.HttpStatus;
 import website.yny84666.spzx.common.core.text.Convert;
 import website.yny84666.spzx.common.core.utils.ServletUtils;
@@ -49,6 +50,9 @@ public class TableSupport
         pageDomain.setIsAsc(ServletUtils.getParameter(IS_ASC));
         pageDomain.setReasonable(ServletUtils.getParameterToBool(REASONABLE));
         return pageDomain;
+    }
+    public static  Page getPage(){
+        return new Page(Convert.toInt(ServletUtils.getParameter(PAGE_NUM), 1),Convert.toInt(ServletUtils.getParameter(PAGE_SIZE), 10));
     }
 
     public static PageDomain buildPageRequest()
