@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 /**
  * Entity基类

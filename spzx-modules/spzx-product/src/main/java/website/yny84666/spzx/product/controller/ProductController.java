@@ -33,52 +33,49 @@ public class ProductController extends BaseController {
     @Resource
     private ProductMapper productMapper;
 
-//    @Operation(summary = "新增商品数据")
-//    @PostMapping
-//    public AjaxResult save(@RequestBody ProductDetailsDTO productDetailsDTO){
-//        return toAjax(productService.saveProductSaveDTO(productSaveDTO));
-//    }
-    @Operation(summary = "根据id查询商品详情")
-    @GetMapping("/selectProductDetailById/{id}")
-    public AjaxResult selectProductDetailById(@PathVariable Long id){
-        return success(productService.selectProductDetailById(id));
-    }
-
-
-    @Operation(summary = "修改商品数据")
-    @PutMapping
-    public AjaxResult edit(@RequestBody ProductDetailsDTO productDetailsDTO) {
-        return toAjax(productService.updateProductDetailsDTO(productDetailsDTO));
-    }
-
-    @Operation(summary = "更新上下架状态")
-    @GetMapping("/updateStatus/{id}/{status}")
-    public AjaxResult updateStatus(@PathVariable("id") Long id, @PathVariable("status") Integer status) {
-        productService.updateStatus(id,status);
-        return success();
-    }
-
-
-    @Operation(summary = "商品审核")
-    @GetMapping("/updateAuditStatus/{id}/{auditStatus}")
-    public AjaxResult updateAuditStatus(@PathVariable("id") Long id, @PathVariable("auditStatus") Integer auditStatus) {
-        productService.updateAuditStatus(id,auditStatus);
-        return success();
-    }
-
     @Operation(summary = "查询商品列表")
     @GetMapping("/list")
-    public TableDataInfo selectProductList(ProductDetailsDTO productDetailsDTO){
+    public TableDataInfo list(Product product) {
         startPage();
-        List<ProductDetailVO> list = productService.selectProductList(productDetailsDTO);
+        List<Product> list = productService.selectProductList(product);
         return getDataTable(list);
+    }
 
+    @Operation(summary = "新增商品")
+    @PostMapping
+    public AjaxResult add(@RequestBody Product product) {
+        return toAjax(productService.insertProduct(product));
+    }
+
+    @Operation(summary = "获取商品详细信息")
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Long id) {
+        return success(productService.selectProductById(id));
+    }
+
+    @Operation(summary = "修改商品")
+    @PutMapping
+    public AjaxResult edit(@RequestBody Product product) {
+        return toAjax(productService.updateProduct(product));
     }
 
     @Operation(summary = "删除商品")
     @DeleteMapping("/{ids}")
-    public AjaxResult deleteProduct(@PathVariable("ids") List<Long> ids) {
-        productMapper.deleteBatchIds(ids);
+    public AjaxResult remove(@PathVariable Long[] ids) {
+        return toAjax(productService.deleteProductByIds(ids));
+    }
+
+    @Operation(summary = "商品审核")
+    @GetMapping("updateAuditStatus/{id}/{auditStatus}")
+    public AjaxResult updateAuditStatus(@PathVariable Long id, @PathVariable Integer auditStatus) {
+        productService.updateAuditStatus(id, auditStatus);
+        return success();
+    }
+
+    @Operation(summary = "更新上下架状态")
+    @GetMapping("updateStatus/{id}/{status}")
+    public AjaxResult updateStatus(@PathVariable Long id, @PathVariable Integer status) {
+        productService.updateStatus(id, status);
         return success();
     }
 

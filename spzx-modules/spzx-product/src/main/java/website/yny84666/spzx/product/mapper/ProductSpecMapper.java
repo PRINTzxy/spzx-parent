@@ -3,6 +3,8 @@ package website.yny84666.spzx.product.mapper;
 import website.yny84666.spzx.product.domain.ProductSpec;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
 * @author Dell
 * @description 针对表【product_spec(商品规格)】的数据库操作Mapper
@@ -11,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface ProductSpecMapper extends BaseMapper<ProductSpec> {
 
+
+    List<ProductSpec> selectProductSpecList(ProductSpec productSpec);
 }
 
 

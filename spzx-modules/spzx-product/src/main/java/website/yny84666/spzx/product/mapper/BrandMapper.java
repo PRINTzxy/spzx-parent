@@ -13,17 +13,10 @@ import java.util.List;
 */
 public interface BrandMapper extends BaseMapper<Brand> {
 
+
     List<Brand> selectBrandList(Brand brand);
 
-    Brand getBrandById(Long id);
-
-    int updateBrandById(Brand brand);
-
-    Brand selectBrandByName(String name);
-
-//    int saveBrand(Brand brand);
-
-    int deleteBrand(List<Long> ids);
+    int updateBrand(Brand brand);
 }
 
 

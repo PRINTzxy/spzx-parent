@@ -23,9 +23,11 @@ public class CategoryController extends BaseController {
     @Resource
     private CategoryMapper categoryMapper;
 
-    @Operation(summary = "根据父id查询下一级商品分类列表")
-    @GetMapping("/treeSelect/{id}")
-    public AjaxResult treeSelect(@PathVariable("id") Long id) {
-        return success(categoryService.list(Wrappers.lambdaQuery(Category.class).eq(Category::getParentId,id)));
+    @Operation(summary = "获取分类下拉树列表")
+    @GetMapping(value = "/treeSelect/{id}")
+    public AjaxResult treeSelect(@PathVariable Long id) {
+        return success(categoryService.treeSelect(id));
     }
+
+
 }

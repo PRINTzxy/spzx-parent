@@ -20,4 +20,14 @@
         create_by,update_time,update_by,
         del_flag,remark
     </sql>
+    <select id="selectProductUnitPage" resultType="website.yny84666.spzx.product.domain.ProductUnit">
+        select *
+        from product_unit
+        <where>
+            <if test="query.name != null and query.name != ''">
+                and name like concat('%', #{query.name}, '%')
+            </if>
+            and del_flag = 0
+        </where>
+    </select>
 </mapper>

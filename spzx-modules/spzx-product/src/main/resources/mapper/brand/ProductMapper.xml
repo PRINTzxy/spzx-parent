@@ -34,7 +34,7 @@
         update_by,del_flag,remark
     </sql>
 
-    <select id="selectProductList" resultType="website.yny84666.spzx.product.domain.vo.ProductVO">
+    <select id="selectProductList" resultType="website.yny84666.spzx.product.domain.Product">
         SELECT p.*,b.name brandName,c1.name category1Name,c2.name category2Name,c3.name category3Name
         FROM product p
         left join brand b on p.brand_id = b.id and b.del_flag = 0

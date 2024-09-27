@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import website.yny84666.spzx.common.core.web.domain.BaseEntity;
 
@@ -21,102 +24,19 @@ public class Brand extends BaseEntity implements Serializable {
     /**
      * 品牌名称
      */
+    @NotBlank(message = "品牌名称不能为空")
+    @Size(min = 0, max = 64, message = "品牌名称长度不能超过64个字符")
+    @Schema(description = "品牌名称")
     private String name;
 
     /**
      * 品牌图标
      */
+    @NotBlank(message = "品牌图标不能为空")
+    @Size(min = 0, max = 200, message = "品牌图标长度不能超过200个字符")
+    @Schema(description = "品牌图标")
     private String logo;
 
-//    @Override
-//    public Long getId() {
-//        return super.getId();
-//    }
-//
-//    @Override
-//    public void setId(Long id) {
-//        super.setId(id);
-//    }
-//
-//    @Override
-//    public String getDelFlag() {
-//        return super.getDelFlag();
-//    }
-//
-//    @Override
-//    public void setDelFlag(String delFlag) {
-//        super.setDelFlag(delFlag);
-//    }
-//
-//    @Override
-//    public String getSearchValue() {
-//        return super.getSearchValue();
-//    }
-//
-//    @Override
-//    public void setSearchValue(String searchValue) {
-//        super.setSearchValue(searchValue);
-//    }
-//
-//    @Override
-//    public String getCreateBy() {
-//        return super.getCreateBy();
-//    }
-//
-//    @Override
-//    public void setCreateBy(String createBy) {
-//        super.setCreateBy(createBy);
-//    }
-//
-//    @Override
-//    public Date getCreateTime() {
-//        return super.getCreateTime();
-//    }
-//
-//    @Override
-//    public void setCreateTime(Date createTime) {
-//        super.setCreateTime(createTime);
-//    }
-//
-//    @Override
-//    public String getUpdateBy() {
-//        return super.getUpdateBy();
-//    }
-//
-//    @Override
-//    public void setUpdateBy(String updateBy) {
-//        super.setUpdateBy(updateBy);
-//    }
-//
-//    @Override
-//    public Date getUpdateTime() {
-//        return super.getUpdateTime();
-//    }
-//
-//    @Override
-//    public void setUpdateTime(Date updateTime) {
-//        super.setUpdateTime(updateTime);
-//    }
-//
-//    @Override
-//    public String getRemark() {
-//        return super.getRemark();
-//    }
-//
-//    @Override
-//    public void setRemark(String remark) {
-//        super.setRemark(remark);
-//    }
-//
-//    @Override
-//    public Map<String, Object> getParams() {
-//        return super.getParams();
-//    }
-//
-//    @Override
-//    public void setParams(Map<String, Object> params) {
-//        super.setParams(params);
-//    }
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

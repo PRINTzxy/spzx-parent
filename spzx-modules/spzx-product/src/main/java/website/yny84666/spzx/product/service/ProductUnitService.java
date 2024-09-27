@@ -1,5 +1,6 @@
 package website.yny84666.spzx.product.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import website.yny84666.spzx.product.domain.ProductUnit;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -13,7 +14,5 @@ import java.util.List;
 */
 public interface ProductUnitService extends IService<ProductUnit> {
 
-    Page<ProductUnit> selectProductUnitPage(ProductUnit productUnit);
-
-    void checkUniqueUnitName(ProductUnit productUnit);
+    IPage<ProductUnit> selectProductUnitPage(Page<ProductUnit> pageParam, ProductUnit productUnit);
 }

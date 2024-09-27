@@ -14,11 +14,5 @@ public interface BrandService extends IService<Brand> {
 
     List<Brand> selectBrandList(Brand brand);
 
-    Brand getBrandById(Long id);
-
-    int updateBrandById(Brand brand);
-
-    int saveBrand(Brand brand);
-
-    int deleteBrand(List<Long> ids);
+    int updateBrand(Brand brand);
 }

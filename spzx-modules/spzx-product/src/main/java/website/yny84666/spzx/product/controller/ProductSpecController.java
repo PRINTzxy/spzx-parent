@@ -8,10 +8,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
+import website.yny84666.spzx.common.core.web.page.TableDataInfo;
+import website.yny84666.spzx.common.security.utils.SecurityUtils;
 import website.yny84666.spzx.product.domain.ProductSpec;
 import website.yny84666.spzx.product.mapper.ProductSpecMapper;
 import website.yny84666.spzx.product.service.ProductSpecService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -23,42 +26,46 @@ public class ProductSpecController extends BaseController {
     @Resource
     private ProductSpecMapper productSpecMapper;
 
+    @Operation(summary = "查询商品规格列表")
+    @GetMapping("/list")
+    public TableDataInfo list(ProductSpec productSpec) {
+        startPage();
+        List<ProductSpec> list = productSpecService.selectProductSpecList(productSpec);
+        return getDataTable(list);
+    }
+
+    @Operation(summary = "获取商品规格详细信息")
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Long id) {
+        return success(productSpecService.selectProductSpecById(id));
+    }
+
     @Operation(summary = "新增商品规格")
     @PostMapping
-    public AjaxResult save(@RequestBody ProductSpec productSpec) {
-        productSpecService.checkProductSpecUnique(productSpec);
-        return toAjax(productSpecMapper.insert(productSpec));
+    public AjaxResult add(@RequestBody @Validated ProductSpec productSpec) {
+        productSpec.setCreateBy(SecurityUtils.getUsername());
+        return toAjax(productSpecService.save(productSpec));
     }
 
     @Operation(summary = "修改商品规格")
-    @PutMapping()
-    public AjaxResult updateProductSpec(@Validated @RequestBody ProductSpec productSpec) {
-        productSpecService.checkProductSpecUnique(productSpec);
+    @PutMapping
+    public AjaxResult edit(@RequestBody @Validated ProductSpec productSpec) {
+        productSpec.setUpdateBy(SecurityUtils.getUsername());
         return toAjax(productSpecMapper.updateById(productSpec));
     }
 
-
-    @Operation(summary = "获取商品规格详细信息")
-    @GetMapping("/{id}")
-    public AjaxResult getProductSpec(@PathVariable("id") Long id) {
-        return success(productSpecMapper.selectById(id));
-    }
-    @Operation(summary = "根据分类id获取商品规格列表")
-    @GetMapping("/productSpecList/{categoryId}")
-    public AjaxResult getproductSpecListById(@PathVariable("categoryId") Long categoryId) {
-        return success(productSpecMapper.selectList(new LambdaQueryWrapper<ProductSpec>().eq(ProductSpec::getCategoryId,categoryId)));
-    }
-
-    @Operation(summary = "查询商品规格列表")
-    @GetMapping("/list")
-    public AjaxResult getProductSpecList(ProductSpec productSpec) {
-        return success(productSpecMapper.selectList(new LambdaQueryWrapper<ProductSpec>()));
-    }
-
-
     @Operation(summary = "删除商品规格")
     @DeleteMapping("/{ids}")
-    public AjaxResult deleteProductSpec(@PathVariable("ids") List<Long> ids) {
+    public AjaxResult remove(@PathVariable List<Long> ids) {
         return toAjax(productSpecMapper.deleteBatchIds(ids));
     }
+
+    @Operation(summary = "根据分类id获取商品规格列表")
+    @GetMapping("/productSpecList/{categoryId}")
+    public AjaxResult selectProductSpecListByCategoryId(@PathVariable Long categoryId) {
+        return success(productSpecService.selectProductSpecListByCategoryId(categoryId));
+    }
+
+
+
 }

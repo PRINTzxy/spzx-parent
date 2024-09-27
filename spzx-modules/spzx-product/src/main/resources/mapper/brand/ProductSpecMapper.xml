@@ -23,4 +23,18 @@
         update_time,update_by,del_flag,
         remark
     </sql>
+    <select id="selectProductSpecList" resultType="website.yny84666.spzx.product.domain.ProductSpec">
+        select ps.*,c.name as categoryName
+        from product_spec ps
+        left join category c on c.id = ps.category_id
+        <where>
+            <if test="categoryId != null">
+                and ps.category_id = #{categoryId}
+            </if>
+            <if test="specName != null and specName != ''">
+                and ps.spec_name like concat('%',#{specName},'%')
+            </if>
+            and ps.del_flag = 0
+        </where>
+    </select>
 </mapper>

@@ -1,9 +1,12 @@
 package website.yny84666.spzx.product.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.annotation.Resource;
 import website.yny84666.spzx.common.core.exception.ServiceException;
 import website.yny84666.spzx.common.core.utils.StringUtils;
 import website.yny84666.spzx.common.core.web.page.PageDomain;
@@ -24,37 +27,23 @@ import java.util.List;
 public class ProductUnitServiceImpl extends ServiceImpl<ProductUnitMapper, ProductUnit>
     implements ProductUnitService{
 
+    @Resource
+    private ProductUnitMapper productUnitMapper;
+
     @Override
-    public Page<ProductUnit> selectProductUnitPage(ProductUnit productUnit) {
-        //1.通过工具获得PageDomain TableSupport
-        PageDomain pageDomain = TableSupport.getPageDomain();
-        //2.封装 mp需要的page分页数据
-        Page<ProductUnit> page = new Page<>(pageDomain.getPageNum(),pageDomain.getPageSize());
-        //利用Wrappers封装的方法lambdaQuery来使用动态sql
-        LambdaQueryWrapper<ProductUnit> productUnitLambdaQueryWrapper = Wrappers.lambdaQuery(ProductUnit.class);
-
-        //如果productUnit.name不为NULL设置 动态sql条件
-        productUnitLambdaQueryWrapper.like(productUnit.getName() != null
-                , ProductUnit::getName
-                , productUnit.getName());
-
-
-
-        Page<ProductUnit> productUnitPage = baseMapper.selectPage(page, productUnitLambdaQueryWrapper);
-        return productUnitPage;
+    public IPage<ProductUnit> selectProductUnitPage(Page<ProductUnit> pageParam, ProductUnit productUnit) {
+        return productUnitMapper.selectProductUnitPage(pageParam,productUnit);
     }
 
-    @Override
-    public void checkUniqueUnitName(ProductUnit productUnit) {
-        Long id = productUnit.getId()==null?-1L:productUnit.getId();
-        ProductUnit dbUnit = baseMapper.selectOne(Wrappers.lambdaQuery(ProductUnit.class)
-                .eq(ProductUnit::getName, productUnit.getName())
-                .last("limit 1"));
-        if(dbUnit!=null && !id.equals(dbUnit.getId())){
-            throw new ServiceException("商品单位名称已存在");
+    /*@Override
+    public IPage<ProductUnit> selectProductUnitPage(Page<ProductUnit> pageParam, ProductUnit productUnit) {
+        QueryWrapper<ProductUnit> wrapper = new QueryWrapper<>();
+        if(!StringUtils.isEmpty(productUnit.getName())){
+            wrapper.like("name",productUnit.getName());
         }
-    }
-
+        Page<ProductUnit> productUnitPage = baseMapper.selectPage(pageParam, wrapper);
+        return productUnitPage;
+    }*/
 }
 
 

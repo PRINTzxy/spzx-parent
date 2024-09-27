@@ -3,6 +3,8 @@ package website.yny84666.spzx.product.service;
 import website.yny84666.spzx.product.domain.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author Dell
 * @description 针对表【category(商品分类)】的数据库操作Service
@@ -10,4 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CategoryService extends IService<Category> {
 
+    List<Category> treeSelect(Long id);
+
+    List<Long> getAllCategoryIdList(Long id);
 }

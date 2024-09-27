@@ -1,6 +1,7 @@
 package website.yny84666.spzx.product.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import website.yny84666.spzx.product.domain.Brand;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
 import website.yny84666.spzx.product.domain.ProductUnit;
@@ -14,7 +15,13 @@ import java.util.List;
 */
 public interface CategoryBrandService extends IService<CategoryBrand> {
 
-    void checkUniqueCategoryBrand(CategoryBrand categoryBrand);
+    List<CategoryBrand> selectCategoryBrandList(CategoryBrand categoryBrand);
 
-    List<CategoryBrand> selectCategoyBrandVOList(CategoryBrand categoryBrand);
+    CategoryBrand selectCategoryBrandById(Long id);
+
+    int insertCategoryBrand(CategoryBrand categoryBrand);
+
+    int updateCategoryBrand(CategoryBrand categoryBrand);
+
+    List<Brand> selectBrandListByCategoryId(Long categoryId);
 }

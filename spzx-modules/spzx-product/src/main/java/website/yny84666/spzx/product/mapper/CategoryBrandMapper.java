@@ -1,5 +1,6 @@
 package website.yny84666.spzx.product.mapper;
 
+import website.yny84666.spzx.product.domain.Brand;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -13,7 +14,9 @@ import java.util.List;
 */
 public interface CategoryBrandMapper extends BaseMapper<CategoryBrand> {
 
-    List<CategoryBrand> selectCategoyBrandVOList(CategoryBrand categoryBrand);
+    List<CategoryBrand> selectCategoryBrandList(CategoryBrand categoryBrand);
+
+    List<Brand> selectBrandListByCategoryId(Long categoryId);
 }
 
 

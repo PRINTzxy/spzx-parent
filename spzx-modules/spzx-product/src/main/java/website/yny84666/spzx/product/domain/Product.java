@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -107,6 +108,14 @@ public class Product extends BaseEntity implements Serializable {
     @Schema(description = "三级分类")
     @TableField(exist = false)
     private String category3Name;
+
+    @Schema(description = "商品sku列表")
+    @TableField(exist = false)
+    private List<ProductSku> productSkuList;
+
+    @Schema(description = "详情图片列表")
+    @TableField(exist = false)
+    private List<String> detailsImageUrlList;
 
 
 

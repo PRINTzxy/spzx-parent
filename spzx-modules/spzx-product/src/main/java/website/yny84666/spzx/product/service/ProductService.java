@@ -15,14 +15,18 @@ import java.util.List;
 * @createDate 2024-09-24 14:19:26
 */
 public interface ProductService extends IService<Product> {
-    List<ProductDetailVO> selectProductList(ProductDetailsDTO productDetailsDTO);
+
+    List<Product> selectProductList(Product product);
+
+    int insertProduct(Product product);
+
+    Product selectProductById(Long id);
+
+    int updateProduct(Product product);
+
+    int deleteProductByIds(Long[] ids);
 
     void updateAuditStatus(Long id, Integer auditStatus);
 
     void updateStatus(Long id, Integer status);
-
-    int updateProductDetailsDTO(ProductDetailsDTO productDetailsDTO);
-
-
-    ProductDetailVO selectProductDetailById(Long id);
 }

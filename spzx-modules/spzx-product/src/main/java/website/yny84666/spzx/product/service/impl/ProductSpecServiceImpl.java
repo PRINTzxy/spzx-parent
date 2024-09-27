@@ -1,13 +1,18 @@
 package website.yny84666.spzx.product.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import website.yny84666.spzx.common.core.exception.ServiceException;
 import website.yny84666.spzx.product.domain.ProductSpec;
+import website.yny84666.spzx.product.service.CategoryService;
 import website.yny84666.spzx.product.service.ProductSpecService;
 import website.yny84666.spzx.product.mapper.ProductSpecMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author Dell
@@ -18,17 +23,27 @@ import org.springframework.stereotype.Service;
 public class ProductSpecServiceImpl extends ServiceImpl<ProductSpecMapper, ProductSpec>
     implements ProductSpecService{
 
-    @Autowired
+    @Resource
+    private CategoryService categoryService;
+    @Resource
     private ProductSpecMapper productSpecMapper;
 
+    @Override
+    public List<ProductSpec> selectProductSpecList(ProductSpec productSpec) {
+        return productSpecMapper.selectProductSpecList(productSpec);
+    }
 
     @Override
-    public void checkProductSpecUnique(ProductSpec productSpec) {
-        Long id = productSpec.getId() == null ? -1L : productSpec.getId();
-        ProductSpec productSpec1 = baseMapper.selectOne(Wrappers.lambdaQuery(ProductSpec.class).eq(ProductSpec::getSpecName, productSpec.getSpecName()).last("limit 1"));
-        if (productSpec1 != null && !id.equals(productSpec1.getId())) {
-            throw new ServiceException("商品单位名称已存在");
-        }
+    public ProductSpec selectProductSpecById(Long id) {
+        ProductSpec productSpec = productSpecMapper.selectById(id);
+        List<Long> categoryIdList = categoryService.getAllCategoryIdList(productSpec.getCategoryId());
+        productSpec.setCategoryIdList(categoryIdList);
+        return productSpec;
+    }
+
+    @Override
+    public List<ProductSpec> selectProductSpecListByCategoryId(Long categoryId) {
+        return productSpecMapper.selectList(new LambdaQueryWrapper<ProductSpec>().eq(ProductSpec::getCategoryId,categoryId));
     }
 }
 

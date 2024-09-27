@@ -1,10 +1,12 @@
 package website.yny84666.spzx.product.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import website.yny84666.spzx.common.core.utils.StringUtils;
@@ -19,7 +21,10 @@ import website.yny84666.spzx.product.mapper.*;
 import website.yny84666.spzx.product.service.ProductService;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
 * @author Dell
@@ -30,18 +35,108 @@ import java.util.List;
 public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
     implements ProductService{
 
-    @Autowired
+    @Resource
     private ProductMapper productMapper;
-    @Autowired
+    @Resource
     private ProductSkuMapper productSkuMapper;
-    @Autowired
+    @Resource
     private ProductDetailsMapper productDetailsMapper;
-    @Autowired
+    @Resource
     private SkuStockMapper skuStockMapper;
 
+
     @Override
-    public List<ProductDetailVO> selectProductList(ProductDetailsDTO productDetailsDTO) {
-        return productMapper.selectProductList(productDetailsDTO);
+    public List<Product> selectProductList(Product product) {
+        return productMapper.selectProductList(product);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public int insertProduct(Product product) {
+        productMapper.insert(product);
+        List<ProductSku> productSkuList = product.getProductSkuList();
+        for (int i = 0,size = productSkuList.size(); i < size; i++) {
+            ProductSku productSku = productSkuList.get(i);
+            productSku.setSkuCode(product.getId()+"_"+i);
+            productSku.setProductId(product.getId());
+            String skuName = product.getName()+" "+productSku.getSkuSpec();
+            productSku.setSkuName(skuName);
+            productSkuMapper.insert(productSku);
+
+            //添加商品库存
+            SkuStock skuStock = new SkuStock();
+            skuStock.setSkuId(productSku.getId());
+            skuStock.setTotalNum(productSku.getStockNum());
+            skuStock.setLockNum(0);
+
+            skuStock.setAvailableNum(productSku.getStockNum());
+            skuStock.setSaleNum(0);
+            skuStockMapper.insert(skuStock);
+        }
+
+        ProductDetails productDetails = new ProductDetails();
+        productDetails.setProductId(product.getId());
+        productDetails.setImageUrls(String.join(",",product.getDetailsImageUrlList()));
+        productDetailsMapper.insert(productDetails);
+
+        return product.getId().intValue();
+    }
+
+    @Override
+    public Product selectProductById(Long id) {
+        //商品信息
+        Product product = productMapper.selectById(id);
+
+        //商品sku列表
+        List<ProductSku> productSkuList = productSkuMapper.selectList(new LambdaQueryWrapper<ProductSku>().eq(ProductSku::getProductId, id));
+        //查询库存
+        List<Long> skuIdList = productSkuList.stream().map(ProductSku::getId).collect(Collectors.toList());
+        List<SkuStock> skuStockList = skuStockMapper.selectList(new LambdaQueryWrapper<SkuStock>().in(SkuStock::getSkuId, skuIdList).select(SkuStock::getSkuId, SkuStock::getTotalNum));
+        Map<Long, Integer> skuIdToStockNumMap = skuStockList.stream().collect(Collectors.toMap(SkuStock::getSkuId, SkuStock::getTotalNum));
+        productSkuList.forEach(item->{
+            item.setStockNum(skuIdToStockNumMap.get(item.getId()));
+        });
+        product.setProductSkuList(productSkuList);
+        //商品详情
+        ProductDetails productDetails = productDetailsMapper.selectOne(new LambdaQueryWrapper<ProductDetails>().eq(ProductDetails::getProductId, id));
+
+        product.setDetailsImageUrlList(Arrays.asList(productDetails.getImageUrls().split(",")));
+        return product;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public int updateProduct(Product product) {
+        productMapper.updateById(product);
+
+        List<ProductSku> productSkuList = product.getProductSkuList();
+
+        productSkuList.forEach(productSku -> {
+            productSkuMapper.updateById(productSku);
+
+            SkuStock skuStock = skuStockMapper.selectOne(new LambdaQueryWrapper<SkuStock>().eq(SkuStock::getSkuId, productSku.getId()));
+            skuStock.setTotalNum(productSku.getStockNum());
+            int availableNum = skuStock.getTotalNum() - skuStock.getLockNum();
+            skuStock.setAvailableNum(availableNum);
+            skuStockMapper.updateById(skuStock);
+        });
+
+        ProductDetails productDetails = productDetailsMapper.selectOne(new LambdaQueryWrapper<ProductDetails>().eq(ProductDetails::getProductId, product.getId()));
+        productDetails.setImageUrls(String.join(",",product.getDetailsImageUrlList()));
+        productDetailsMapper.updateById(productDetails);
+        return 1;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public int deleteProductByIds(Long[] ids) {
+        productMapper.deleteBatchIds(Arrays.asList(ids));
+        List<ProductSku> productSkuList = productSkuMapper.selectList(new LambdaQueryWrapper<ProductSku>().in(ProductSku::getProductId, ids).select(ProductSku::getId));
+        List<Long> skuIdList = productSkuList.stream().map(ProductSku::getId).collect(Collectors.toList());
+        productSkuMapper.delete(new LambdaQueryWrapper<ProductSku>().in(ProductSku::getProductId,ids));
+        skuStockMapper.delete(new LambdaQueryWrapper<SkuStock>().in(SkuStock::getSkuId,skuIdList));
+        productDetailsMapper.delete(new LambdaQueryWrapper<ProductDetails>().in(ProductDetails::getProductId,ids));
+        return 1;
     }
 
     @Override
@@ -51,7 +146,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
         if (auditStatus == 1) {
             product.setAuditStatus(1);
             product.setAuditMessage("审批通过");
-        }else {
+        }else{
             product.setAuditStatus(-1);
             product.setAuditMessage("审批不通过");
         }
@@ -66,99 +161,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
         if (status == 1) product.setStatus(1);
         else product.setStatus(-1);
         productMapper.updateById(product);
+
     }
-
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public int updateProductDetailsDTO(ProductDetailsDTO productDetailsDTO) {
-        productDetailsDTO.setUpdateBy(SecurityUtils.getUsername());
-        baseMapper.updateById(productDetailsDTO);
-
-        List<String> dtoDetailsImageUrlS = productDetailsDTO.getDetailsImageUrlList();
-        productDetailsMapper.deleteById(productDetailsDTO.getId());
-        if(!CollectionUtils.isEmpty(dtoDetailsImageUrlS)){
-            ProductDetails productDetails = new ProductDetails();
-            productDetails.setId(productDetailsDTO.getId());
-            productDetails.setProductId(productDetailsDTO.getId());
-            productDetails.setImageUrls(StringUtils.join(dtoDetailsImageUrlS,","));
-            productDetailsMapper.insert(productDetails);
-        }
-        List<ProductSku> productSkus = productDetailsDTO.getProductSkuList();
-        for (ProductSku productSku : productSkus) {
-            String skuName = productDetailsDTO.getName() + "" + productSku.getSkuSpec();
-            productSku.setSkuName(skuName);
-            productSkuMapper.updateById(productSku);
-            Long skuId = productSku.getId();
-            SkuStock skuStock = skuStockMapper.selectOne(Wrappers.lambdaQuery(SkuStock.class).eq(SkuStock::getSkuId,skuId).last("limit 1"));
-            skuStock.setTotalNum(productSku.getStockNum());
-            skuStock.setAvailableNum(productSku.getStockNum()-skuStock.getLockNum());
-            skuStockMapper.updateById(skuStock);
-        }
-        return 1;
-    }
-
-    @Override
-    public ProductDetailVO selectProductDetailById(Long id) {
-
-        return null;
-    }
-
-
-//    @Resource
-//    private ProductDetailsMapper productDetailsMapper;
-//    @Resource
-//    private ProductSkuMapper productSkuMapper;
-//    @Resource
-//    private SkuStockMapper skuStockMapper;
-//    @Resource
-//    private BrandMapper brandMapper;
-//    @Resource
-//    private CategoryMapper categoryMapper;
-
-//    @Transactional(rollbackFor = Exception.class)
-//    @Override
-//    public int selectProductSaveDTO(ProductSaveDTO productSaveDTO) {
-//        productSaveDTO.setStatus(0);
-//        productSaveDTO.setAuditStatus(0);
-//
-//        productSaveDTO.setCreateBy(SecurityUtils.getUsername());
-//        int i = baseMapper.insert(productSaveDTO);
-//        if (i == 0){
-//            throw new ServiceException("商品数据新增失败");
-//        }
-//        Long productId = productSaveDTO.getId();
-//
-//        if(!CollectionUtils.isEmpty(productSaveDTO.getDetailsImageUrlList())){
-//            ProductDetails productDetails = new ProductDetails();
-//            productDetails.setProductId(productId);
-//            productDetails.setImageUrls(StringUtils.join(productSaveDTO.getDetailsImageUrlList(),","));
-//            productDetailsMapper.insert(productDetails);
-//        }
-//        List<ProductSku> productSkus = productSaveDTO.getProductSkuList();
-//        if(!CollectionUtils.isEmpty(productSkus)){
-//            productSkus.forEach(productSku -> {
-//                productSku.setProductId(productId);
-//                String skuCode = DateUtil.today().replace("-","")+ IdUtil.getSnowflakeNextIdStr();
-//                productSku.setSkuCode(skuCode);
-//                String skuName = productSaveDTO.getName()+" "+productSku.getSkuSpec();
-//                productSku.setSkuName(skuName);
-//                productSku.setStatus(0);
-//                Long skuId = productSku.getId();
-//
-//                SkuStock skuStock = new SkuStock();
-//
-//                skuStock.setSkuId(skuId);
-//                skuStock.setLockNum(0);
-//
-//                skuStock.setTotalNum(productSku.getStockNum());
-//                skuStock.setAvailableNum(productSku.getStockNum());
-//                skuStock.setSaleNum(0);
-//                skuStock.setStatus(0);
-//                skuStockMapper.insert(skuStock);
-//            });
-//        }
-//        return i;
-//    }
 }
 
 
