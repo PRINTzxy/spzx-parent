@@ -3,7 +3,7 @@
   import {getToken} from "@/utils/auth.js"
   import {listBrand,addBrand,getBrand,updateBrand,delBrand} from "@/api/product/brand.js"
   import {ElMessage, ElMessageBox} from "element-plus"
-import { ref } from "vue";
+  import { ref } from "vue";
   //定义分页列表数据模型
   const brandList = ref([]);
   //定义列表总记录数模型
