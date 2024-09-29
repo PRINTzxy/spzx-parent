@@ -14,7 +14,7 @@
     queryParams: {
       pageNum: 1,
       pageSize: 10,
-      name: '',
+      name: null,
     },
     form: {},
     imgUpload: {
