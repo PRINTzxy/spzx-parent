@@ -9,12 +9,14 @@ import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import website.yny84666.spzx.common.core.annotation.Excel;
 import website.yny84666.spzx.common.core.web.domain.BaseEntity;
 
 /**
  * 商品分类
  * @TableName category
  */
+@Schema(description = "商品分类")
 @TableName(value ="category")
 @Data
 public class Category extends BaseEntity implements Serializable {
@@ -39,6 +41,7 @@ public class Category extends BaseEntity implements Serializable {
     /**
      * 是否显示[0-不显示，1显示]
      */
+    @Excel(name = "是否显示", readConverterExp = "0=不显示,1=显示")
     @Schema(description = "是否显示[0-不显示，1显示]")
     private Integer status;
 

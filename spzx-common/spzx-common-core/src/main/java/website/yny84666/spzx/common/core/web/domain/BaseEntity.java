@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.boot.context.properties.bind.DefaultValue;
+import website.yny84666.spzx.common.core.annotation.Excel;
 
 /**
  * Entity基类
@@ -23,6 +24,7 @@ public class BaseEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
+    @Excel(name = "ID")
     @TableId(type = IdType.AUTO)
     private Long id;
 
