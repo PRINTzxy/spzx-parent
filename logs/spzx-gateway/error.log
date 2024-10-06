@@ -1,1 +1,1 @@
-11:02:21.289 [http-nio-8080-exec-10] ERROR w.y.s.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/file/upload
+02:41:35.196 [reactor-http-nio-4] ERROR w.y.s.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/user/getInfo,异常信息:Connection prematurely closed BEFORE response
