@@ -1,22 +1,16 @@
 package website.yny84666.spzx.product.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
+import website.yny84666.spzx.common.core.domain.R;
 import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
 import website.yny84666.spzx.common.core.web.page.TableDataInfo;
-import website.yny84666.spzx.common.core.web.page.TableSupport;
-import website.yny84666.spzx.common.security.utils.SecurityUtils;
+import website.yny84666.spzx.common.security.annotation.InnerAuth;
 import website.yny84666.spzx.product.domain.Product;
-import website.yny84666.spzx.product.domain.ProductSku;
-import website.yny84666.spzx.product.domain.dto.ProductDetailsDTO;
-import website.yny84666.spzx.product.domain.vo.ProductDetailVO;
+import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 import website.yny84666.spzx.product.mapper.ProductMapper;
 import website.yny84666.spzx.product.service.ProductService;
 
@@ -79,5 +73,11 @@ public class ProductController extends BaseController {
         return success();
     }
 
+    @InnerAuth
+    @Operation(summary = "获取销量好的sku")
+    @GetMapping("getTopSale")
+    public R<List<ProductSku>> getTopSale() {
+        return R.ok(productService.getTopSale());
+    }
 
 }

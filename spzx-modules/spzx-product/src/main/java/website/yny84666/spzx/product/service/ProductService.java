@@ -1,11 +1,8 @@
 package website.yny84666.spzx.product.service;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import website.yny84666.spzx.product.domain.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
-import website.yny84666.spzx.product.domain.dto.ProductDetailsDTO;
-import website.yny84666.spzx.product.domain.vo.ProductDetailVO;
+import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 
 import java.util.List;
 
@@ -29,4 +26,6 @@ public interface ProductService extends IService<Product> {
     void updateAuditStatus(Long id, Integer auditStatus);
 
     void updateStatus(Long id, Integer status);
+
+    List<ProductSku> getTopSale();
 }

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import website.yny84666.spzx.product.domain.Product;
-import website.yny84666.spzx.product.domain.ProductSku;
+import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 
 import java.util.List;
 

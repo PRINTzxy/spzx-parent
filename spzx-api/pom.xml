@@ -15,6 +15,7 @@
 
     <modules>
         <module>spzx-api-system</module>
+        <module>spzx-api-product</module>
     </modules>
 
     <properties>

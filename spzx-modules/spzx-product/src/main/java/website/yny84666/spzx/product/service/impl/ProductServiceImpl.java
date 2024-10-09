@@ -1,22 +1,13 @@
 package website.yny84666.spzx.product.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import website.yny84666.spzx.common.core.utils.StringUtils;
-import website.yny84666.spzx.common.security.utils.SecurityUtils;
 import website.yny84666.spzx.product.domain.Product;
 import website.yny84666.spzx.product.domain.ProductDetails;
-import website.yny84666.spzx.product.domain.ProductSku;
+import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 import website.yny84666.spzx.product.domain.SkuStock;
-import website.yny84666.spzx.product.domain.dto.ProductDetailsDTO;
-import website.yny84666.spzx.product.domain.vo.ProductDetailVO;
 import website.yny84666.spzx.product.mapper.*;
 import website.yny84666.spzx.product.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -162,6 +153,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
         else product.setStatus(-1);
         productMapper.updateById(product);
 
+    }
+
+    @Override
+    public List<ProductSku> getTopSale() {
+        return productSkuMapper.getTopSale();
     }
 }
 

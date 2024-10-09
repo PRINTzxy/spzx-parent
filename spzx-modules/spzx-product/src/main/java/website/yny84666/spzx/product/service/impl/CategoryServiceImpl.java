@@ -8,8 +8,10 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 import website.yny84666.spzx.common.core.utils.bean.BeanUtils;
+import website.yny84666.spzx.product.api.domain.vo.CategoryVo;
 import website.yny84666.spzx.product.domain.Category;
 import website.yny84666.spzx.product.domain.vo.CategoryExcelVo;
+import website.yny84666.spzx.product.helper.CategoryHelper;
 import website.yny84666.spzx.product.service.CategoryService;
 import website.yny84666.spzx.product.mapper.CategoryMapper;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
 * @author Dell
@@ -100,6 +103,27 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<CategoryVo> getOneCategory() {
+        List<Category> allCategoryList = categoryMapper.selectList(new LambdaQueryWrapper<Category>().eq(Category::getParentId, 0));
+        return allCategoryList.stream().map(item->{
+            CategoryVo categoryVo = new CategoryVo();
+            BeanUtils.copyProperties(item,categoryVo);
+            return categoryVo;
+        }).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CategoryVo> tree() {
+        List<Category> allCategoryList = categoryMapper.selectList(null);
+        List<CategoryVo> categoryVoList = allCategoryList.stream().map(item -> {
+            CategoryVo categoryVo = new CategoryVo();
+            BeanUtils.copyProperties(item, categoryVo);
+            return categoryVo;
+        }).collect(Collectors.toList());
+        return CategoryHelper.buildTree(categoryVoList);
     }
 
     private List<Category> getParentCategory(Long id, List<Category> categoryList) {

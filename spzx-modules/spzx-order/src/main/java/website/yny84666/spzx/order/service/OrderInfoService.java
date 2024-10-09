@@ -21,4 +21,5 @@ public interface OrderInfoService extends IService<OrderInfo>
      */
     public List<OrderInfo> selectOrderInfoList(OrderInfo orderInfo);
 
+    OrderInfo selectOrderInfoById(Long id);
 }

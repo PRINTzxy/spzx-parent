@@ -7,11 +7,16 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import website.yny84666.spzx.common.core.domain.R;
 import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
+import website.yny84666.spzx.common.security.annotation.InnerAuth;
+import website.yny84666.spzx.product.api.domain.vo.CategoryVo;
 import website.yny84666.spzx.product.domain.Category;
 import website.yny84666.spzx.product.mapper.CategoryMapper;
 import website.yny84666.spzx.product.service.CategoryService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/category")
@@ -27,10 +32,12 @@ public class CategoryController extends BaseController {
     public AjaxResult treeSelect(@PathVariable Long id) {
         return success(categoryService.treeSelect(id));
     }
+
     @PostMapping("/export")
     public void export(HttpServletResponse response) {
         categoryService.exportData(response);
     }
+
     @PostMapping("/import")
     public AjaxResult importData(MultipartFile file) throws Exception {
         try {
@@ -41,4 +48,18 @@ public class CategoryController extends BaseController {
         }
         return AjaxResult.error("导入失败");
     }
+
+    @InnerAuth
+    @GetMapping(value = "/getOneCategory")
+    public R<List<CategoryVo>> getOneCategory() {
+        return R.ok(categoryService.getOneCategory());
+    }
+
+    @InnerAuth
+    @GetMapping("/tree")
+    public R<List<CategoryVo>> tree(){
+        return R.ok(categoryService.tree());
+    }
+
+
 }

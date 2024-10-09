@@ -76,7 +76,7 @@ public class OrderInfoController extends BaseController
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return success(orderInfoService.getById(id));
+        return success(orderInfoService.selectOrderInfoById(id));
     }
 
     /**
