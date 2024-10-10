@@ -1,6 +1,6 @@
 package website.yny84666.spzx.product.service;
 
-import website.yny84666.spzx.product.domain.ProductDetails;
+import website.yny84666.spzx.product.api.domain.vo.ProductDetails;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -3,9 +3,14 @@ package website.yny84666.spzx.product.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
-import website.yny84666.spzx.product.domain.Product;
-import website.yny84666.spzx.product.domain.ProductDetails;
+import website.yny84666.spzx.common.core.utils.bean.BeanUtils;
+import website.yny84666.spzx.product.api.domain.vo.SkuPrice;
+import website.yny84666.spzx.product.api.domain.vo.SkuQuery;
+import website.yny84666.spzx.product.api.domain.vo.SkuStockVo;
+import website.yny84666.spzx.product.api.domain.vo.Product;
+import website.yny84666.spzx.product.api.domain.vo.ProductDetails;
 import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 import website.yny84666.spzx.product.domain.SkuStock;
 import website.yny84666.spzx.product.mapper.*;
@@ -13,6 +18,7 @@ import website.yny84666.spzx.product.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,6 +29,7 @@ import java.util.stream.Collectors;
 * @createDate 2024-09-24 14:19:26
 */
 @Service
+@Slf4j
 public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
     implements ProductService{
 
@@ -159,6 +166,54 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
     public List<ProductSku> getTopSale() {
         return productSkuMapper.getTopSale();
     }
+
+    @Override
+    public List<ProductSku> selectProductSkuList(SkuQuery skuQuery) {
+        return productMapper.selectProductSkuList(skuQuery);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public ProductSku getProductSku(Long skuId) {
+        return productSkuMapper.selectById(skuId);
+    }
+
+    @Override
+    public Product getProduct(Long id) {
+        return productMapper.selectById(id);
+    }
+
+    @Override
+    public SkuPrice getSkuPrice(Long skuId) {
+        ProductSku productSku = productSkuMapper.selectOne(new LambdaQueryWrapper<ProductSku>().eq(ProductSku::getId, skuId).select(ProductSku::getSalePrice, ProductSku::getMarketPrice));
+        SkuPrice skuPrice = new SkuPrice();
+        BeanUtils.copyProperties(productSku, skuPrice);
+        return skuPrice;
+    }
+
+    @Override
+    public ProductDetails getProductDetails(Long id) {
+        return productDetailsMapper.selectOne(new LambdaQueryWrapper<ProductDetails>().eq(ProductDetails::getProductId, id));
+    }
+
+    @Override
+    public Map<String, Long> getSkuSpecValue(Long id) {
+        List<ProductSku> productSkuList = productSkuMapper.selectList(new LambdaQueryWrapper<ProductSku>().eq(ProductSku::getProductId, id).select(ProductSku::getId, ProductSku::getSkuSpec));
+        Map<String,Long> skuSpecValueMap = new HashMap<>();
+        productSkuList.forEach(item -> {
+            skuSpecValueMap.put(item.getSkuSpec(), item.getId());
+        });
+        return skuSpecValueMap;
+    }
+
+    @Override
+    public SkuStockVo getSkuStock(Long skuId) {
+        SkuStock skuStock = skuStockMapper.selectOne(new LambdaQueryWrapper<SkuStock>().eq(SkuStock::getSkuId, skuId));
+        SkuStockVo skuStockVo = new SkuStockVo();
+        BeanUtils.copyProperties(skuStock, skuStockVo);
+        return skuStockVo;
+    }
+
 }
 
 

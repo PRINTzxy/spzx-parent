@@ -1,6 +1,6 @@
 package website.yny84666.spzx.product.service;
 
-import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.api.domain.vo.Brand;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -15,4 +15,5 @@ public interface BrandService extends IService<Brand> {
     List<Brand> selectBrandList(Brand brand);
 
     int updateBrand(Brand brand);
+
 }

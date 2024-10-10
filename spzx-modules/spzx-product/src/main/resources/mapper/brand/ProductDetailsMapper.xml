@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="website.yny84666.spzx.product.mapper.ProductDetailsMapper">
 
-    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.ProductDetails">
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.api.domain.vo.ProductDetails">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="productId" column="product_id" jdbcType="BIGINT"/>
             <result property="imageUrls" column="image_urls" jdbcType="VARCHAR"/>

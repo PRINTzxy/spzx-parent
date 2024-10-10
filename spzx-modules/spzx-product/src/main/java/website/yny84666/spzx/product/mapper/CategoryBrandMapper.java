@@ -1,6 +1,6 @@
 package website.yny84666.spzx.product.mapper;
 
-import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.api.domain.vo.Brand;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

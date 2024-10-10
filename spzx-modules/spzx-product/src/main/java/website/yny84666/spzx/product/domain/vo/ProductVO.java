@@ -3,7 +3,7 @@ package website.yny84666.spzx.product.domain.vo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import website.yny84666.spzx.product.domain.Product;
+import website.yny84666.spzx.product.api.domain.vo.Product;
 
 @Data
 @Schema(description = "商品列表数据模型")

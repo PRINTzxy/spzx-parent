@@ -1,7 +1,7 @@
 package website.yny84666.spzx.product.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import website.yny84666.spzx.product.domain.ProductDetails;
+import website.yny84666.spzx.product.api.domain.vo.ProductDetails;
 import website.yny84666.spzx.product.service.ProductDetailsService;
 import website.yny84666.spzx.product.mapper.ProductDetailsMapper;
 import org.springframework.stereotype.Service;

@@ -1,21 +1,20 @@
 package website.yny84666.spzx.product.controller;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
-import org.aspectj.weaver.loadtime.Aj;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import website.yny84666.spzx.common.core.domain.R;
 import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
 import website.yny84666.spzx.common.core.web.page.TableDataInfo;
 import website.yny84666.spzx.common.log.annotation.Log;
 import website.yny84666.spzx.common.log.enums.BusinessType;
+import website.yny84666.spzx.common.security.annotation.InnerAuth;
 import website.yny84666.spzx.common.security.annotation.RequiresPermissions;
 import website.yny84666.spzx.common.security.utils.SecurityUtils;
-import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.api.domain.vo.Brand;
 import website.yny84666.spzx.product.mapper.BrandMapper;
 import website.yny84666.spzx.product.service.BrandService;
 
@@ -83,7 +82,12 @@ public class BrandController extends BaseController {
         return success(brandMapper.selectBrandList(null));
     }
 
-
+    @InnerAuth
+    @Operation(summary = "获取全部品牌")
+    @GetMapping("getBrandAllList")
+    public R<List<Brand>> getBrandAllList() {
+        return R.ok(brandService.selectBrandList(null));
+    }
 
 }
 

@@ -48,7 +48,7 @@
             and cb.del_flag = 0 and b.del_flag = 0 and c.del_flag = 0
         </where>
     </select>
-    <select id="selectBrandListByCategoryId" resultType="website.yny84666.spzx.product.domain.Brand">
+    <select id="selectBrandListByCategoryId" resultType="website.yny84666.spzx.product.api.domain.vo.Brand">
         select b.id,b.name,b.logo,cb.*
         from category_brand cb
         left join brand b on b.id = cb.brand_id

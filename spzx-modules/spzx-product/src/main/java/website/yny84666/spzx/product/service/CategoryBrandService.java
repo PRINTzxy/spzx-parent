@@ -1,10 +1,8 @@
 package website.yny84666.spzx.product.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.api.domain.vo.Brand;
 import website.yny84666.spzx.product.domain.CategoryBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
-import website.yny84666.spzx.product.domain.ProductUnit;
 
 import java.util.List;
 

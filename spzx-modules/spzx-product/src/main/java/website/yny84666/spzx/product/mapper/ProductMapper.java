@@ -1,11 +1,9 @@
 package website.yny84666.spzx.product.mapper;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.apache.ibatis.annotations.Param;
-import website.yny84666.spzx.product.domain.Product;
+import website.yny84666.spzx.product.api.domain.vo.ProductSku;
+import website.yny84666.spzx.product.api.domain.vo.SkuQuery;
+import website.yny84666.spzx.product.api.domain.vo.Product;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import website.yny84666.spzx.product.domain.dto.ProductDetailsDTO;
-import website.yny84666.spzx.product.domain.vo.ProductDetailVO;
 
 import java.util.List;
 
@@ -13,12 +11,14 @@ import java.util.List;
 * @author Dell
 * @description 针对表【product(商品)】的数据库操作Mapper
 * @createDate 2024-09-24 14:19:26
-* @Entity website.yny84666.spzx.product.domain.Product
+* @Entity website.yny84666.spzx.product.api.domain.vo.Product
 */
 public interface ProductMapper extends BaseMapper<Product> {
 
 
     List<Product> selectProductList(Product product);
+
+    List<ProductSku> selectProductSkuList(SkuQuery skuQuery);
 }
 
 

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="website.yny84666.spzx.product.mapper.BrandMapper">
 
-    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.Brand">
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.api.domain.vo.Brand">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="logo" column="logo" jdbcType="VARCHAR"/>
@@ -45,7 +45,7 @@
         )
     </insert>
 
-    <select id="selectBrandList" resultType="website.yny84666.spzx.product.domain.Brand">
+    <select id="selectBrandList" resultType="website.yny84666.spzx.product.api.domain.vo.Brand">
         select *
         from brand
         <where>

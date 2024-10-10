@@ -1,13 +1,9 @@
 package website.yny84666.spzx.product.service.impl;
 
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import website.yny84666.spzx.common.core.exception.ServiceException;
-import website.yny84666.spzx.common.security.utils.SecurityUtils;
-import website.yny84666.spzx.product.domain.Brand;
+import website.yny84666.spzx.product.api.domain.vo.Brand;
 import website.yny84666.spzx.product.service.BrandService;
 import website.yny84666.spzx.product.mapper.BrandMapper;
 import org.springframework.stereotype.Service;
@@ -37,6 +33,8 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand>
     public int updateBrand(Brand brand) {
         return brandMapper.updateBrand(brand);
     }
+
+
 }
 
 

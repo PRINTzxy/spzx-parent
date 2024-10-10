@@ -3369,7 +3369,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -3496,7 +3496,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -3623,7 +3623,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -3750,7 +3750,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -3877,7 +3877,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4050,7 +4050,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4177,7 +4177,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4304,7 +4304,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4431,7 +4431,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4558,7 +4558,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -4685,7 +4685,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'create_time' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -5891,7 +5891,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6024,7 +6024,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6157,7 +6157,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6422,7 +6422,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6483,7 +6483,7 @@ Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter 
 	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
 	... 69 common frames omitted
 [34m2024-09-24 18:48:53.251[0;39m [1;31mERROR[0;39m [35m[http-nio-9205-exec-6][0;39m [36mw.y.s.c.s.h.GlobalExceptionHandler - [handleRuntimeException:105][0;39m - 请求地址'/brand',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `website.yny84666.spzx.product.domain.Brand` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('{
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `website.yny84666.spzx.product.api.domain.vo.Brand` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('{
   "id": ”7“,
   "createBy": "",
   "createTime": "",
@@ -6551,7 +6551,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: JSON parse e
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `website.yny84666.spzx.product.domain.Brand` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('{
+Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `website.yny84666.spzx.product.api.domain.vo.Brand` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('{
   "id": ”7“,
   "createBy": "",
   "createTime": "",
@@ -6649,7 +6649,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6782,7 +6782,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -6915,7 +6915,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -7048,7 +7048,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -7181,7 +7181,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)
@@ -7314,7 +7314,7 @@ org.mybatis.spring.MyBatisSystemException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.domain.Brand'
+Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'update_by' in 'class website.yny84666.spzx.product.api.domain.vo.Brand'
 	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:387)
 	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:162)
 	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:159)

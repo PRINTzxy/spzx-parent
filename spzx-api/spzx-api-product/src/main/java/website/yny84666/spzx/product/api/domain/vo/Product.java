@@ -1,4 +1,4 @@
-package website.yny84666.spzx.product.domain;
+package website.yny84666.spzx.product.api.domain.vo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -8,7 +8,6 @@ import java.util.List;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import website.yny84666.spzx.common.core.web.domain.BaseEntity;
-import website.yny84666.spzx.product.api.domain.vo.ProductSku;
 
 /**
  * 商品

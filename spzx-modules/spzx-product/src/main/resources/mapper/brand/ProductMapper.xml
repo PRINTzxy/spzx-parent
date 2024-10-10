@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="website.yny84666.spzx.product.mapper.ProductMapper">
 
-    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.domain.Product">
+    <resultMap id="BaseResultMap" type="website.yny84666.spzx.product.api.domain.vo.Product">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="brandId" column="brand_id" jdbcType="BIGINT"/>
@@ -34,7 +34,7 @@
         update_by,del_flag,remark
     </sql>
 
-    <select id="selectProductList" resultType="website.yny84666.spzx.product.domain.Product">
+    <select id="selectProductList" resultType="website.yny84666.spzx.product.api.domain.vo.Product">
         SELECT p.*,b.name brandName,c1.name category1Name,c2.name category2Name,c3.name category3Name
         FROM product p
         left join brand b on p.brand_id = b.id and b.del_flag = 0
@@ -60,6 +60,27 @@
             </if>
         </where>
 
+    </select>
+    <select id="selectProductSkuList" resultType="website.yny84666.spzx.product.api.domain.vo.ProductSku">
+        select ps.*,ss.sale_num
+        from product_sku ps
+        left join product p on p.id = ps.product_id
+        left join sku_stock ss on ss.sku_id = ps.id
+        <where>
+            <if test="keyword != null  and keyword != ''"> and ps.sku_name like concat('%', #{keyword}, '%')</if>
+            <if test="brandId != null "> and p.brand_id = #{brandId}</if>
+            <if test="category1Id != null "> and p.category1_id = #{category1Id}</if>
+            <if test="category2Id != null "> and p.category2_id = #{category2Id}</if>
+            <if test="category3Id != null "> and p.category3_id = #{category3Id}</if>
+            and p.status = 1
+            and p.audit_status = 1
+            and ps.del_flag = 0
+            and p.del_flag = 0
+            and ss.del_flag = 0
+        </where>
+        <if test="order == 1">order by ss.sale_num desc</if>
+        <if test="order == 2">order by ps.sale_price asc</if>
+        <if test="order == 3">order by ps.sale_price desc</if>
     </select>
 
 </mapper>

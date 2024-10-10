@@ -1,10 +1,15 @@
 package website.yny84666.spzx.product.service;
 
-import website.yny84666.spzx.product.domain.Product;
+import website.yny84666.spzx.product.api.domain.vo.SkuPrice;
+import website.yny84666.spzx.product.api.domain.vo.SkuQuery;
+import website.yny84666.spzx.product.api.domain.vo.SkuStockVo;
+import website.yny84666.spzx.product.api.domain.vo.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
 import website.yny84666.spzx.product.api.domain.vo.ProductSku;
+import website.yny84666.spzx.product.api.domain.vo.ProductDetails;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author Dell
@@ -28,4 +33,19 @@ public interface ProductService extends IService<Product> {
     void updateStatus(Long id, Integer status);
 
     List<ProductSku> getTopSale();
+
+    List<ProductSku> selectProductSkuList(SkuQuery skuQuery);
+
+    ////////////////////////////////////////////////////////////////////////////////
+    ProductSku getProductSku(Long skuId);
+
+    Product getProduct(Long id);
+
+    SkuPrice getSkuPrice(Long skuId);
+
+    ProductDetails getProductDetails(Long id);
+
+    Map<String, Long> getSkuSpecValue(Long id);
+
+    SkuStockVo getSkuStock(Long skuId);
 }
