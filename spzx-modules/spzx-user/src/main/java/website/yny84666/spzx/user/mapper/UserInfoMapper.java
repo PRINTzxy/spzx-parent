@@ -1,7 +1,7 @@
 package website.yny84666.spzx.user.mapper;
 
 import java.util.List;
-import website.yny84666.spzx.user.domain.UserInfo;
+import website.yny84666.spzx.user.api.domain.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

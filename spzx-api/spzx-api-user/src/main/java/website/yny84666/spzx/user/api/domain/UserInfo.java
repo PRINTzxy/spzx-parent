@@ -1,4 +1,4 @@
-package website.yny84666.spzx.user.domain;
+package website.yny84666.spzx.user.api.domain;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -60,6 +60,12 @@
             <groupId>online.yny84666</groupId>
             <artifactId>spzx-common-log</artifactId>
         </dependency>
+        <!--  阿里云短信服务  -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>alibabacloud-dysmsapi20170525</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
     </dependencies>
 

@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Arrays;
 
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,11 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import website.yny84666.spzx.common.core.context.SecurityContextHolder;
+import website.yny84666.spzx.common.core.domain.R;
+import website.yny84666.spzx.common.core.utils.bean.BeanUtils;
 import website.yny84666.spzx.common.log.annotation.Log;
 import website.yny84666.spzx.common.log.enums.BusinessType;
+import website.yny84666.spzx.common.security.annotation.InnerAuth;
+import website.yny84666.spzx.common.security.annotation.RequiresLogin;
 import website.yny84666.spzx.common.security.annotation.RequiresPermissions;
+import website.yny84666.spzx.user.api.domain.UpdateUserLogin;
 import website.yny84666.spzx.user.domain.UserAddress;
-import website.yny84666.spzx.user.domain.UserInfo;
+import website.yny84666.spzx.user.api.domain.UserInfo;
+import website.yny84666.spzx.user.domain.UserInfoVo;
 import website.yny84666.spzx.user.service.UserInfoService;
 import website.yny84666.spzx.common.core.web.controller.BaseController;
 import website.yny84666.spzx.common.core.web.domain.AjaxResult;
@@ -26,7 +33,6 @@ import website.yny84666.spzx.common.core.utils.poi.ExcelUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import website.yny84666.spzx.common.core.web.page.TableDataInfo;
-import website.yny84666.spzx.user.service.UserInfoService;
 
 /**
  * 会员Controller
@@ -110,4 +116,41 @@ public class UserInfoController extends BaseController
         List<UserAddress> userAddressList = userInfoService.selectUserAddressList(userId);
         return success(userAddressList);
     }
+
+    /////////////////////////////////远程调用接口开发///////////////////////////////////
+    @InnerAuth
+    @PostMapping("/register")
+    public R<Boolean> register(@RequestBody UserInfo userInfo){
+        userInfoService.register(userInfo);
+        return R.ok();
+    }
+
+    @Operation(summary = "根据用户名获取用户信息")
+    @InnerAuth
+    @GetMapping("/info/{username}")
+    public R<UserInfo> getUserInfo(@PathVariable("username") String username)
+    {
+        UserInfo userInfo = userInfoService.selectUserByUserName(username);
+        return R.ok(userInfo);
+    }
+
+    @Operation(summary = "更新用户登录信息")
+    @InnerAuth
+    @PutMapping("/updateUserLogin")
+    public R<Boolean> updateUserLogin(@RequestBody UpdateUserLogin updateUserLogin)
+    {
+        return R.ok(userInfoService.updateUserLogin(updateUserLogin));
+    }
+
+    @Operation(summary = "获取当前登录用户信息")
+    @RequiresLogin
+    @GetMapping("/getLoginUserInfo")
+    public AjaxResult getLoginUserInfo(HttpServletRequest request) {
+        Long userId = SecurityContextHolder.getUserId();
+        UserInfo userInfo = userInfoService.getById(userId);
+        UserInfoVo userInfoVo = new UserInfoVo();
+        BeanUtils.copyProperties(userInfo, userInfoVo);
+        return success(userInfoVo);
+    }
+
 }

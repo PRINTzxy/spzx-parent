@@ -2,8 +2,9 @@ package website.yny84666.spzx.user.service;
 
 import java.util.List;
 
+import website.yny84666.spzx.user.api.domain.UpdateUserLogin;
 import website.yny84666.spzx.user.domain.UserAddress;
-import website.yny84666.spzx.user.domain.UserInfo;
+import website.yny84666.spzx.user.api.domain.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -24,4 +25,12 @@ public interface UserInfoService extends IService<UserInfo>
     public List<UserInfo> selectUserInfoList(UserInfo userInfo);
 
     List<UserAddress> selectUserAddressList(Long userId);
+
+    ///////////////////////////////////////////////////////////////
+
+    void register(UserInfo userInfo);
+
+    UserInfo selectUserByUserName(String username);
+
+    Boolean updateUserLogin(UpdateUserLogin updateUserLogin);
 }
